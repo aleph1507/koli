@@ -32,6 +32,10 @@ Route::get('/contact', function() {
   return view('contact');
 })->name('contact');
 
+Route::get('/newuser', 'CouponsController@create')->name('newcoupon');
+
 Auth::routes();
+
+Route::get('/profile', 'ProfileController@index')->name('profile');
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -23,6 +23,7 @@
                    <li><a href="{{route('buy_the_book')}}"><img class='nav-img-w' src="{{asset('assets/buy_the_book.png')}}"></a></li>
                    <li><a href="{{route('contact')}}"><img class='nav-img-w' src="{{asset('assets/contact.png')}}"></a></li>
                    @if(Auth::check())
+                     <li><a href="{{route('profile')}}"><img class='nav-img-w' src="{{asset('assets/profile.png')}}" alt="Profile"></a></li>
                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
                      <li><a href="{{route('logout')}}"
                          onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

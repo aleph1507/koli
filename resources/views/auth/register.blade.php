@@ -7,6 +7,10 @@
             <div class="card">
                 <div class="card-header">{{ __('Register') }}</div>
 
+                <div class="try-login" style="margin-left:5em;">
+                  <p class="lead">Already a seller? <a href="{{route('login')}}">Login</a></p>
+                </div>
+
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
