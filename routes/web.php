@@ -23,10 +23,14 @@ Route::get('/about_book', function() {
   return view('about_book');
 })->name('about_book');
 
-Route::get('/buy_the_book', function() {
-  return view('buy_the_book');
-})->name('buy_the_book');
+// Route::get('/buy_the_book', function() {
+//   return view('buy_the_book');
+// })->name('buy_the_book');
 
+
+Route::get('/buy_the_book', 'SellsController@index')->name('buy_the_book');
+
+Route::get('/get-ccs', 'SellsController@getCC')->name('getCC');
 
 Route::get('/contact', function() {
   return view('contact');

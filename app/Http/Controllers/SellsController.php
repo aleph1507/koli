@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Coupon;
-use Auth;
 
-class CouponsController extends Controller
+class SellsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,29 +14,17 @@ class CouponsController extends Controller
      */
     public function index()
     {
-        //
+        return view('buy_the_book');
     }
 
-    function generateRandomString($length = 7)
-    {
-        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        $charactersLength = strlen($characters);
-        $randomString = '';
-        for ($i = 0; $i < $length; $i++) {
-            $randomString .= $characters[rand(0, $charactersLength - 1)];
-        }
-        return $randomString;
-    }
-
-    function getUniqueCode(){
+    public function getCC() {
       $coupons = Coupon::all();
-      $cc = $this->generateRandomString();
-      foreach($coupons as $c){
-        if($c->couponcode == $cc)
-          $this->getUniqueCode();
+      $codes = [];
+      $index = 0;
+      foreach($coupons as $coupon){
+        $codes[$index++] = $coupon->couponcode;
       }
-
-      return $cc;
+      return $codes;
     }
 
     /**
@@ -47,12 +34,7 @@ class CouponsController extends Controller
      */
     public function create()
     {
-      $uid = Auth::user()->id;
-      $c = new Coupon();
-      $c->user_id = $uid;
-      $c->couponcode = $this->getUniqueCode();
-      $c->save();
-      return redirect('/');
+        //
     }
 
     /**
