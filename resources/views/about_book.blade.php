@@ -17,7 +17,7 @@
 
           <div class="col-md-6">
             <img class='box-shadow box-radius img-responsive mx-auto d-block img-fluid'
-              src="{{asset('assets/book_cover.PNG')}}" alt="Book Cover">
+              src="{{secure_asset('assets/book_cover.PNG')}}" alt="Book Cover">
               <p class='content-p large-text white-text'>
                 The book takes young readers on an adventure full of laughter,
                 fun, learning, and love while teaching valuable lessons
