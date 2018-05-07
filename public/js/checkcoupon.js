@@ -7,7 +7,7 @@ var xhttp;
     xhttp = new ActiveXObject("Microsoft.XMLHTTP");
   }
 // var xhttp = new XMLHttpRequest();
-xhttp.open("GET", "http://127.0.0.1:8000/get-ccs", true);
+xhttp.open("GET", "https://shrouded-dawn-19367.herokuapp.com/get-ccs", true);
 xhttp.onreadystatechange = function() {
     console.log("vo xhttp.onreadystatechange");
     if (this.readyState == 4 && this.status == 200) {
