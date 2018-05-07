@@ -15,8 +15,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
-        if(env('APP_ENV')!=='local'){
-          \URL::forceScheme('https');          
+        if(env('REDIRECT_HTTPS')!=='local'){
+          \URL::forceScheme('https');
         }
     }
 
@@ -27,6 +27,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+      if(env('REDIRECT_HTTPS')!=='local'){
+        $this->app['request']->server->set('HTTPS', true);
+      }
     }
 }
