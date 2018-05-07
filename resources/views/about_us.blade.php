@@ -6,7 +6,8 @@
         <div class="content">
           <div class="row">
             <div class="col-md-6">
-                <img class='box-shadow box-radius img-responsive img-fluid' src="{{secure_asset('assets/authors.PNG')}}" alt="authors">
+                {{-- <img class='box-shadow box-radius img-responsive img-fluid' src="{{secure_asset('assets/authors.PNG')}}" alt="authors"> --}}
+                <img class='box-shadow box-radius img-responsive img-fluid' src="{{asset('assets/authors.PNG')}}" alt="authors">
                 <br>
             </div>
             <div class="col-md-6">

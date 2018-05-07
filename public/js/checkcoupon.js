@@ -6,10 +6,13 @@ var xhttp;
     // code for IE6, IE5
     xhttp = new ActiveXObject("Microsoft.XMLHTTP");
   }
-// var xhttp = new XMLHttpRequest();
-xhttp.open("GET", "https://shrouded-dawn-19367.herokuapp.com/get-ccs", true);
+// xhttp.open("GET", "https://shrouded-dawn-19367.herokuapp.com/get-ccs", true);
+var xhttp = new XMLHttpRequest();
+xhttp.open("GET", "http://127.0.0.1:8000/get-ccs", true);
 xhttp.onreadystatechange = function() {
-    console.log("vo xhttp.onreadystatechange");
+    // console.log("vo xhttp.onreadystatechange");
+    // console.log("readyState: " + this.readyState);
+    // console.log("this.status: " + this.status);
     if (this.readyState == 4 && this.status == 200) {
       let c_string = this.responseText.substring(1, this.responseText.length-1);
       c_string = c_string.replace(/['"]+/g, '');

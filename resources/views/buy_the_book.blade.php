@@ -46,5 +46,6 @@
     </div>
   </div>
 </div>
-<script src="{{secure_asset('js/checkcoupon.js')}}"></script>
+{{-- <script src="{{secure_asset('js/checkcoupon.js')}}"></script> --}}
+<script src="{{asset('js/checkcoupon.js')}}"></script>
 @endsection
