@@ -43,3 +43,5 @@ Auth::routes();
 Route::get('/profile', 'ProfileController@index')->name('profile');
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::post('/paypalipn', 'SellsController@paypalIpn')->name('paypalIPN');

@@ -10,9 +10,9 @@ var xhttp;
 var xhttp = new XMLHttpRequest();
 xhttp.open("GET", "http://127.0.0.1:8000/get-ccs", true);
 xhttp.onreadystatechange = function() {
-    // console.log("vo xhttp.onreadystatechange");
-    // console.log("readyState: " + this.readyState);
-    // console.log("this.status: " + this.status);
+    console.log("vo xhttp.onreadystatechange");
+    console.log("readyState: " + this.readyState);
+    console.log("this.status: " + this.status);
     if (this.readyState == 4 && this.status == 200) {
       let c_string = this.responseText.substring(1, this.responseText.length-1);
       c_string = c_string.replace(/['"]+/g, '');
@@ -22,6 +22,9 @@ xhttp.onreadystatechange = function() {
       }
   };
 }
+xhttp.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+// document.querySelector('meta[name="csrf-token"]').content
+xhttp.setRequestHeader("X-CSRF-TOKEN", document.querySelector('meta[name="csrf-token"]').content);
 xhttp.send();
 
 // nocouponpaypal = "<form action=\"https://www.paypal.com/cgi-bin/webscr\" method=\"post\" target=\"_top\"" + ">" +
@@ -93,10 +96,11 @@ function checkCoupons(e) {
                         "</form>";
         document.getElementById('paypal').innerHTML = couponpaypal;
         cpaypal = true;
+        console.log("COUPON");
         // this_iteration = true;
         break;
       } else {
-        console.log("vo else");
+        console.log("no coupon");
         if(cpaypal){
           console.log("vo else if");
           document.getElementById('paypal').innerHTML = nocouponpaypal;
